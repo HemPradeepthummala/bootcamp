@@ -2,25 +2,28 @@ package com.tw.bootcamp.problem2;
 
 public class Chance {
 
-	private final double probability;
+	private double probability;
 
 	Chance(double probability) {
 		this.probability = probability;
 	}
 
-	public static Chance of(double probability) {
+	public static Chance of(double probability) throws InvalidProbabilityRangeException {
+		if(probability > 1 || probability < 0) {
+			throw new InvalidProbabilityRangeException("Invalid Range");
+		}
 		return new Chance(probability);
 	}
 
-	public static Chance and(double probabilityOfEach, double numOfItems) {
-		return of(Math.pow(probabilityOfEach, numOfItems));
+	public Chance and(Chance other) throws InvalidProbabilityRangeException {
+		return of(this.probability * other.probability);
 	}
 
-	public static Chance atleastOnce(double probability) {
-	return of(probability+(1-probability) - probability * (1 - probability));
+	public Chance or(Chance other) throws InvalidProbabilityRangeException {
+	return of(probability+ other.probability - probability * other.probability);
 	}
 
-	public  Chance not() {
+	public  Chance not() throws InvalidProbabilityRangeException {
 		return Chance.of(1 - this.probability);
 	}
 
@@ -35,5 +38,9 @@ public class Chance {
 	@Override
 	public int hashCode() {
 		return Double.hashCode(probability);
+	}
+
+	public Chance demorgon(Chance chance) throws InvalidProbabilityRangeException {
+		return  this.not().and(chance.not()).not();
 	}
 }

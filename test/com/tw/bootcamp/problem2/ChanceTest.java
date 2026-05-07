@@ -6,32 +6,44 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ChanceTest {
 	@Test
-	void chanceOfGettingTails() {
+	void chanceOfGettingTails() throws InvalidProbabilityRangeException {
 		Chance chance = Chance.of(0.5);
-		assertEquals(new Chance(0.5),chance);
+		assertEquals(Chance.of(0.5),chance);
 	}
 
 	@Test
-	void chanceOfNotGetting() {
+	void chanceOfNotGetting() throws InvalidProbabilityRangeException {
 		Chance chance = Chance.of(0.3).not();
-		assertEquals(new Chance(0.7),chance);
+		assertEquals(Chance.of(0.7),chance);
 	}
 
 	@Test
-	void chanceOfGettingTailsInTwoCoins() {
-		Chance chance = Chance.and(0.5, 2);
-		assertEquals(new Chance(0.25), chance);
+	void chanceOfGettingTailsInTwoCoins() throws InvalidProbabilityRangeException {
+		Chance chance = Chance.of(0.5);
+		Chance and = chance.and(Chance.of(0.5));
+		assertEquals(Chance.of(0.25), and);
 	}
 
 	@Test
-	void chanceOfGettingAValueOnDice() {
+	void chanceOfGettingAValueOnDice() throws InvalidProbabilityRangeException {
 		Chance chance = Chance.of(0.16);
-		assertEquals(new Chance(0.16), chance);
+		assertEquals(Chance.of(0.16), chance);
 	}
 
 	@Test
-	void chanceOfGettingAtleastOneTail() {
-		Chance chance = Chance.atleastOnce(0.5);
-		assertEquals(new Chance(0.75),chance);
+	void chanceOfGettingAtleastOneTail() throws InvalidProbabilityRangeException {
+		Chance chance = Chance.of(0.5).or(Chance.of(0.5));
+		assertEquals(Chance.of(0.75),chance);
+	}
+
+	@Test
+	void DemorgansLaw() throws InvalidProbabilityRangeException {
+		Chance chance = Chance.of(0.5).demorgon(Chance.of(0.5));
+		assertEquals(Chance.of(0.75),chance);
+	}
+	@Test
+	void invaildProbabilityRange() throws  InvalidProbabilityRangeException {
+		InvalidProbabilityRangeException exception = assertThrows(InvalidProbabilityRangeException.class, () -> Chance.of(1.5));
+		assertEquals(exception.getMessage(),"Invalid Range");
 	}
 }
