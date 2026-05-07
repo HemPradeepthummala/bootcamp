@@ -4,24 +4,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class QuadrilateralTest {
+class RectangleTest {
 	@Test
 	void calculateRectangleArea() {
-		Quadrilateral rectangle = new Quadrilateral(1, 2);
+		Rectangle rectangle = Rectangle.createRectangle(1, 2);
 		double area = rectangle.calculateArea();
 		assertEquals(area,2);
 	}
 
 	@Test
 	void perimeterOfNumber() {
-		Quadrilateral rectangle = new Quadrilateral(2, 8);
+		Rectangle rectangle = Rectangle.createRectangle(2, 8);
 		double perimeter = rectangle.perimeter();
 		assertEquals(20,perimeter);
 	}
 
 	@Test
 	void squarePerimeterandArea() {
-		Quadrilateral square = new Quadrilateral(3);
+		Rectangle square = Rectangle.createSquare(3);
 		double area = square.calculateArea();
 		double perimeter = square.perimeter();
 		assertEquals(9,area);
@@ -31,7 +31,7 @@ class QuadrilateralTest {
 	@Test
 
 	public void rectangleAreaAndPerimeter() {
-		Quadrilateral<Float> rectangle = new Quadrilateral<>(2.5f, 3.0f);
+		Rectangle<Float> rectangle = Rectangle.createRectangle(2.5f, 3.0f);
 		double perimeter = rectangle.perimeter();
 		double area = rectangle.calculateArea();
 		assertEquals(7.5, area);
