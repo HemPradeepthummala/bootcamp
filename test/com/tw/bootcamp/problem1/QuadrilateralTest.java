@@ -26,7 +26,15 @@ class QuadrilateralTest {
 		double perimeter = square.perimeter();
 		assertEquals(9,area);
 		assertEquals(12,perimeter);
-
 	}
 
+	@Test
+
+	public void rectangleAreaAndPerimeter() {
+		Quadrilateral<Float> rectangle = new Quadrilateral<>(2.5f, 3.0f);
+		double perimeter = rectangle.perimeter();
+		double area = rectangle.calculateArea();
+		assertEquals(7.5, area);
+		assertEquals(11, perimeter);
+	}
 }
