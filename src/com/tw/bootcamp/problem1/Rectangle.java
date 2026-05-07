@@ -3,8 +3,8 @@ package com.tw.bootcamp.problem1;
 public class Rectangle {
 
 
-	private final Number width;
-	private final Number length;
+	private final double width;
+	private final double length;
 
 	private Rectangle(double length, double width) {
 		this.length = length;
@@ -21,11 +21,11 @@ public class Rectangle {
 
 
 	public double calculateArea() {
-		return  width.doubleValue() *  length.doubleValue();
+		return  width *  length;
 	}
 
 	public double perimeter() {
-		return 2 * (length.doubleValue() + width.doubleValue());
+		return 2 * (length + width);
 
 	}
 }
