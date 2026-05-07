@@ -1,15 +1,22 @@
 package com.tw.bootcamp.problem1;
 
-public class Rectangle {
-	private final int length;
-	private final int width;
+public class Rectangle<T extends Number> {
 
-	public Rectangle(int length, int width) {
+
+	private final T width;
+	private final T length;
+
+	public Rectangle(T length, T width) {
 		this.length = length;
 		this.width = width;
 	}
 
-	public int calculateArea() {
-		return length * width;
+	public double calculateArea() {
+		return  width.doubleValue() *  length.doubleValue();
+	}
+
+	public double perimeter() {
+		return 2 * (length.doubleValue() + width.doubleValue());
+
 	}
 }

@@ -8,7 +8,18 @@ class RectangleTest {
 	@Test
 	void calculateRectangleArea() {
 		Rectangle rectangle = new Rectangle(1, 2);
-		int area = rectangle.calculateArea();
+		double area = rectangle.calculateArea();
 		assertEquals(area,2);
+	}
+
+	@Test
+	void perimeterOfNumber() {
+		Rectangle rectangle = new Rectangle(2, 8);
+		double perimeter = rectangle.perimeter();
+		assertEquals(20,perimeter);
+	}
+
+	@Test
+	void name() {
 	}
 }
