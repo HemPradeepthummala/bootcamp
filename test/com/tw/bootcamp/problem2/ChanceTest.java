@@ -19,7 +19,19 @@ class ChanceTest {
 
 	@Test
 	void chanceOfGettingTailsInTwoCoins() {
-		Chance chance = Chance.ofMultipleItems(0.5, 2);
+		Chance chance = Chance.and(0.5, 2);
 		assertEquals(new Chance(0.25), chance);
+	}
+
+	@Test
+	void chanceOfGettingAValueOnDice() {
+		Chance chance = Chance.of(0.16);
+		assertEquals(new Chance(0.16), chance);
+	}
+
+	@Test
+	void chanceOfGettingAtleastOneTail() {
+		Chance chance = Chance.atleastOnce(0.5);
+		assertEquals(new Chance(0.75),chance);
 	}
 }

@@ -12,8 +12,12 @@ public class Chance {
 		return new Chance(probability);
 	}
 
-	public static Chance ofMultipleItems(double probabilityOfEach, double numOfItems) {
+	public static Chance and(double probabilityOfEach, double numOfItems) {
 		return of(Math.pow(probabilityOfEach, numOfItems));
+	}
+
+	public static Chance atleastOnce(double probability) {
+	return of(probability+(1-probability) - probability * (1 - probability));
 	}
 
 	public  Chance not() {
