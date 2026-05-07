@@ -2,7 +2,7 @@ package com.tw.bootcamp.problem1;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RectangleTest {
 	@Test
@@ -31,7 +31,7 @@ class RectangleTest {
 	@Test
 
 	public void rectangleAreaAndPerimeter() {
-		Rectangle<Float> rectangle = Rectangle.createRectangle(2.5f, 3.0f);
+		Rectangle rectangle = Rectangle.createRectangle(2.5f, 3.0f);
 		double perimeter = rectangle.perimeter();
 		double area = rectangle.calculateArea();
 		assertEquals(7.5, area);

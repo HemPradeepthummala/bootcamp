@@ -1,21 +1,21 @@
 package com.tw.bootcamp.problem1;
 
-public class Rectangle<T extends Number> {
+public class Rectangle {
 
 
-	private final T width;
-	private final T length;
+	private final Number width;
+	private final Number length;
 
-	private Rectangle(T length, T width) {
+	private Rectangle(double length, double width) {
 		this.length = length;
 		this.width = width;
 	}
 
-	public static <T extends Number> Rectangle<T> createRectangle(T length, T width) {
-		return new Rectangle<T>(length, width);
+	public static Rectangle createRectangle(double length, double width) {
+		return new Rectangle(length, width);
 	}
 
-	public static <T extends Number> Rectangle<T> createSquare(T side) {
+	public static Rectangle createSquare(double side) {
 		return createRectangle(side, side);
 	}
 
