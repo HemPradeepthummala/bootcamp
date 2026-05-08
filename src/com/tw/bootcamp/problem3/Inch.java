@@ -3,8 +3,12 @@ package com.tw.bootcamp.problem3;
 public class Inch {
 	private final double value;
 
-	public Inch(double inch) {
+	private Inch(double inch) {
 		this.value = inch;
+	}
+
+	public static Inch createInch(double inch) {
+		return new Inch(inch);
 	}
 
 	@Override
@@ -21,12 +25,11 @@ public class Inch {
 	}
 
 	public Boolean compareWithInches(Feet feet) {
-		return  equals(new Inch(feet.toInch()));
+		return  equals(createInch(feet.toInch()));
 	}
 
 	public boolean compareWithCentimeter(Centimeter centimeter) {
-			return equals(new Inch(centimeter.toInch()));
+			return equals(createInch(centimeter.toInch()));
 	}
-
 }
 

@@ -7,16 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LengthComparisionTest {
 	@Test
 	void compareInchToFeet() {
-		Inch inch = new Inch(12);
-		Feet feet = new Feet(1);
+		Inch inch = Inch.createInch(12);
+		Feet feet = Feet.createFeet(1);
 		Boolean isEqual = inch.compareWithInches(feet);
 		assertTrue(isEqual);
 	}
 
 	@Test
 	void compareInchToCentimeter() {
-		Inch inch = new Inch(2);
-		Centimeter centimeter = new Centimeter(5);
+		Inch inch = Inch.createInch(2);
+		Centimeter centimeter = Centimeter.createCentimeter(5);
 		boolean isEqual = inch.compareWithCentimeter(centimeter);
 		assertTrue(isEqual);
 	}
