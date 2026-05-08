@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ConversionTest {
 	@Test
 	void VoulmeConversion() {
-		BaseVolume  liter = new BaseVolume (3.78, VolumeUnit.L);
-		BaseVolume  gallon = new BaseVolume (1, VolumeUnit.L);
+		Volume liter = new Volume(3.78, VolumeUnit.L);
+		Volume gallon = new Volume(1, VolumeUnit.L);
 		boolean isEqual = liter.compare(gallon);
 		assertTrue(isEqual);
 	}
@@ -17,46 +17,54 @@ public class ConversionTest {
 
 	@Test
 	void compareCentimeterAndMillimeter() {
-		BaseLength centimmeter = new BaseLength(1, LengthUnit.CM);
-		BaseLength millimeter = new BaseLength(10, LengthUnit.MM);
+		Length centimmeter = new Length(1, LengthUnit.CM);
+		Length millimeter = new Length(10, LengthUnit.MM);
 		assertTrue(centimmeter.compare(millimeter));
 	}
 
 	@Test
 	void compareCentimeterWithInches() {
-		BaseLength centimeter = new BaseLength(5, LengthUnit.CM);
-		BaseLength inches = new BaseLength(2, LengthUnit.IN);
+		Length centimeter = new Length(5, LengthUnit.CM);
+		Length inches = new Length(2, LengthUnit.IN);
 		assertTrue(centimeter.compare(inches));
 	}
 
 	@Test
 	void compareFeetandInch() {
-		BaseLength feet = new BaseLength(1, LengthUnit.Feet);
-		BaseLength inches = new BaseLength(12, LengthUnit.IN);
+		Length feet = new Length(1, LengthUnit.Feet);
+		Length inches = new Length(12, LengthUnit.IN);
 		assertTrue(feet.compare(inches));
 	}
 
 	@Test
 	void additionOfSameType() {
-		BaseLength unit1 = new BaseLength(2, LengthUnit.IN);
-		BaseLength unit2 = new BaseLength(2, LengthUnit.IN);
-		BaseLength result = unit1.add(unit2, LengthUnit.IN);
-		assertEquals(new BaseLength(4,LengthUnit.IN),result);
+		Length unit1 = new Length(2, LengthUnit.IN);
+		Length unit2 = new Length(2, LengthUnit.IN);
+		Length result = unit1.add(unit2, LengthUnit.IN);
+		assertEquals(new Length(4,LengthUnit.IN),result);
 		}
 
 	@Test
 	void additionOfDifferentLengthTypes() {
-		BaseLength unit1 = new BaseLength(2, LengthUnit.IN);
-		BaseLength unit2 = new BaseLength(2.5, LengthUnit.CM);
-		BaseLength result = unit1.add(unit2,LengthUnit.IN);
-		assertEquals(new BaseLength(3,LengthUnit.IN),result);
+		Length unit1 = new Length(2, LengthUnit.IN);
+		Length unit2 = new Length(2.5, LengthUnit.CM);
+		Length result = unit1.add(unit2,LengthUnit.IN);
+		assertEquals(new Length(3,LengthUnit.IN),result);
 	}
 
 	@Test
 	void additionOfDifferentVolumeTypes() {
-		BaseVolume unit1 = new BaseVolume (1, VolumeUnit.GAL);
-		BaseVolume  unit2 = new BaseVolume (1, VolumeUnit.L);
-		BaseVolume  result = unit1.add(unit2,VolumeUnit.L);
-		assertEquals(new BaseVolume (4.78,VolumeUnit.L),result);
+		Volume unit1 = new Volume(1, VolumeUnit.GAL);
+		Volume unit2 = new Volume(1, VolumeUnit.L);
+		Volume result = unit1.add(unit2,VolumeUnit.L);
+		assertEquals(new Volume(4.78,VolumeUnit.L),result);
 	}
+
+	@Test
+	void compareTemperatures() {
+		Temperature farenheit = new Temperature(212, TemparatureUnit.F);
+		Temperature celcius = new Temperature(100, TemparatureUnit.C);
+		assertTrue(farenheit.compare(celcius));
+	}
+
 }

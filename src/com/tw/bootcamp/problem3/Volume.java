@@ -2,24 +2,24 @@ package com.tw.bootcamp.problem3;
 
 import java.util.Objects;
 
-public class BaseVolume {
+public class Volume {
 
 	private final double value;
 	private final VolumeUnit unit;
 
-	public BaseVolume(double value, VolumeUnit unit) {
+	public Volume(double value, VolumeUnit unit) {
 		this.value = value;
 		this.unit = unit;
 	}
 
-	public boolean compare(BaseVolume other) {
+	public boolean compare(Volume other) {
 		return this.unit.convertTo(value) == other.unit.convertTo(value);
 	}
 
 
-	public BaseVolume add(BaseVolume other, VolumeUnit unit) {
+	public Volume add(Volume other, VolumeUnit unit) {
 		double result = this.unit.convertTo(this.value) + other.unit.convertTo(other.value);
-		BaseVolume standardValue = new BaseVolume(Math.round(unit.convertFrom(result) * 100.0) / 100.0, unit);
+		Volume standardValue = new Volume(Math.round(unit.convertFrom(result) * 100.0) / 100.0, unit);
 		return standardValue;
 	}
 
@@ -35,7 +35,7 @@ public class BaseVolume {
 	public boolean equals(Object o) {
 		if (o == null || getClass() != o.getClass()) return false;
 
-		BaseVolume that = (BaseVolume) o;
+		Volume that = (Volume) o;
 		return Double.compare(value, that.value) == 0 && unit == that.unit;
 	}
 

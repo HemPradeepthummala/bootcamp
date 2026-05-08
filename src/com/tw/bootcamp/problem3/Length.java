@@ -2,31 +2,31 @@ package com.tw.bootcamp.problem3;
 
 import java.util.Objects;
 
-public class BaseLength {
+public class Length {
 
 	private final double value;
 	private final LengthUnit unit;
 
-	public BaseLength(double value, LengthUnit unit) {
+	public Length(double value, LengthUnit unit) {
 		this.value = value;
 		this.unit = unit;
 	}
 
 
-	public boolean compare(BaseLength other) {
+	public boolean compare(Length other) {
 		return this.unit.convertTo(value) == other.unit.convertTo(other.value);
 	}
 
-	public BaseLength add(BaseLength other, LengthUnit unit) {
+	public Length add(Length other, LengthUnit unit) {
 		double result = this.unit.convertTo(this.value) + other.unit.convertTo(other.value);
-		return  new BaseLength(unit.convertFrom(result), unit);
+		return  new Length(unit.convertFrom(result), unit);
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (o == null || getClass() != o.getClass()) return false;
 
-		BaseLength that = (BaseLength) o;
+		Length that = (Length) o;
 		return Double.compare(value, that.value) == 0 && unit == that.unit;
 	}
 
