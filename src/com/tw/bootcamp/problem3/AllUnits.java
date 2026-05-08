@@ -1,12 +1,14 @@
 package com.tw.bootcamp.problem3;
 
-public enum VolumeUnit {
-	L(1),
-	GAL(3.78);
+public enum AllUnits {
+	IN(2.5),
+	CM(1),
+	Feet(30),
+	MM(.1);
 
 	private final double conversionDelta;
 
-	VolumeUnit(double conversionDelta) {
+	AllUnits(double conversionDelta) {
 		this.conversionDelta = conversionDelta;
 	}
 
