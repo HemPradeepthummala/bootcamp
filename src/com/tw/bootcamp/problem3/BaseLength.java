@@ -14,12 +14,12 @@ public class BaseLength<T extends LengthUnit> {
 
 
 	public boolean compare(BaseLength<T> other) {
-		return this.unit.convert(value) == other.unit.convert(other.value);
+		return this.unit.convertTo(value) == other.unit.convertTo(other.value);
 	}
 
-	public BaseLength<T> add(BaseLength<T> other) {
-		double result = this.unit.convert(this.value) + other.unit.convert(other.value);
-		return  new BaseLength<T>(result/2.5,LengthUnit.IN);
+	public BaseLength<T> add(BaseLength<T> other, LengthUnit unit) {
+		double result = this.unit.convertTo(this.value) + other.unit.convertTo(other.value);
+		return  new BaseLength<T>(unit.convertFrom(result), unit);
 	}
 
 	@Override

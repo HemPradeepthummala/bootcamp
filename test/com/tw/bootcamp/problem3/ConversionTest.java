@@ -39,7 +39,7 @@ public class ConversionTest {
 	void additionOfSameType() {
 		BaseLength<LengthUnit> unit1 = new BaseLength<>(2, LengthUnit.IN);
 		BaseLength<LengthUnit> unit2 = new BaseLength<>(2, LengthUnit.IN);
-		BaseLength<LengthUnit> result = unit1.add(unit2);
+		BaseLength<LengthUnit> result = unit1.add(unit2, LengthUnit.IN);
 		assertEquals(new BaseLength<LengthUnit>(4,LengthUnit.IN),result);
 		}
 
@@ -47,7 +47,8 @@ public class ConversionTest {
 	void additionOfDifferentType() {
 		BaseLength<LengthUnit> unit1 = new BaseLength<>(2, LengthUnit.IN);
 		BaseLength<LengthUnit> unit2 = new BaseLength<>(2.5, LengthUnit.CM);
-		BaseLength<LengthUnit> result = unit1.add(unit2);
+		BaseLength<LengthUnit> result = unit1.add(unit2,LengthUnit.IN);
 		assertEquals(new BaseLength<LengthUnit>(3,LengthUnit.IN),result);
 	}
+
 }

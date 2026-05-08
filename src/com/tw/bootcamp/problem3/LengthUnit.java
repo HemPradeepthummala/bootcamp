@@ -12,7 +12,11 @@ public enum LengthUnit {
 		this.conversionDelta = conversionDelta;
 	}
 
-	public double convert(double value) {
+	public double convertTo(double value) {
 		return value * conversionDelta;
+	}
+
+	public double convertFrom(double baseValue) {
+		return baseValue/conversionDelta;
 	}
 }
