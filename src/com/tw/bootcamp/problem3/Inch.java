@@ -1,17 +1,13 @@
 package com.tw.bootcamp.problem3;
 
 public class Inch {
-	private final int value;
+	private final double value;
 
-	public Inch(int inch) {
+	public Inch(double inch) {
 		this.value = inch;
 	}
 
-	public static Inch toInch(Feet feet) {
-		return new Inch(feet.toInch());
-	}
-
-	public int toFeet() {
+	public double toFeet() {
 		return  value / 12;
 	}
 
@@ -25,7 +21,16 @@ public class Inch {
 
 	@Override
 	public int hashCode() {
-		return value;
+		return Double.hashCode(value);
 	}
+
+	public Boolean compareWithOtherType(Feet feet) {
+		return  equals(new Inch(feet.toInch()));
+	}
+
+	public boolean compareWithCentimeter(Centimeter centimeter) {
+			return equals(new Inch(centimeter.toInch()));
+	}
+
 }
 

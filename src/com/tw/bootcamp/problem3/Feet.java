@@ -24,8 +24,4 @@ public class Feet {
 		return value;
 	}
 
-	public static Inch toFeet(Inch inch) {
-		return new Inch(inch.toFeet());
-	}
-
 }

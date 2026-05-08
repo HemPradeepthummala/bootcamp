@@ -2,13 +2,23 @@ package com.tw.bootcamp.problem3;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LengthComparisionTest {
 	@Test
-	void compareLengths() {
+	void compareInchToFeet() {
 		Inch inch = new Inch(12);
 		Feet feet = new Feet(1);
-		Inch feetToInch = Inch.toInch(feet);
-		assertEquals(inch,feetToInch);
+		Boolean isEqual = inch.compareWithOtherType(feet);
+		assertTrue(isEqual);
 	}
+
+	@Test
+	void compareInchToCentimeter() {
+		Inch inch = new Inch(2);
+		Centimeter centimeter = new Centimeter(5);
+		boolean isEqual = inch.compareWithCentimeter(centimeter);
+		assertTrue(isEqual);
+	}
+	
 }
