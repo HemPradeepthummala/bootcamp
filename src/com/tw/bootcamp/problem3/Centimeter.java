@@ -11,5 +11,4 @@ public class Centimeter {
 	public double toInch() {
 		return  centimeter / 2.5;
 	}
-
 }

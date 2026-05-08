@@ -7,10 +7,6 @@ public class Inch {
 		this.value = inch;
 	}
 
-	public double toFeet() {
-		return  value / 12;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (o == null || getClass() != o.getClass()) return false;
@@ -24,7 +20,7 @@ public class Inch {
 		return Double.hashCode(value);
 	}
 
-	public Boolean compareWithOtherType(Feet feet) {
+	public Boolean compareWithInches(Feet feet) {
 		return  equals(new Inch(feet.toInch()));
 	}
 

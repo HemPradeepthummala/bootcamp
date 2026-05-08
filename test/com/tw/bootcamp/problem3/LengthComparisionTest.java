@@ -9,7 +9,7 @@ public class LengthComparisionTest {
 	void compareInchToFeet() {
 		Inch inch = new Inch(12);
 		Feet feet = new Feet(1);
-		Boolean isEqual = inch.compareWithOtherType(feet);
+		Boolean isEqual = inch.compareWithInches(feet);
 		assertTrue(isEqual);
 	}
 
