@@ -1,6 +1,7 @@
 package com.tw.bootcamp.problem4;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class ParkingLotManager {
 	private final HashMap<String,ParkingLot> parkingLots;
@@ -22,4 +23,22 @@ public class ParkingLotManager {
 			return  "P"+id++;
 	}
 
+	public boolean park() {
+		ParkingLot parkingLot = getAvailableParkingLot();
+
+		if(!(parkingLot instanceof ParkingLot)){
+			throw  new RuntimeException("No lots Available");
+		}
+
+		return parkingLot.park();
+	}
+
+	private ParkingLot getAvailableParkingLot() {
+		for (String id : parkingLots.keySet()) {
+			if(!parkingLots.get(id).isFull()) {
+				return parkingLots.get(id);
+			}
+		}
+		return null;
+	}
 }
